@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="heading">CALCULATOR</h1>
+    <div class="container">
+        
+        <div class="calculator">
+
+            <div>
+                <div class="small" type="text"></div>
+                <div class="smaller">TWO&nbsp;WAY&nbsp;POWER</div>
+                <div class="heading2" id="ONE">CASIO </div>
+                <div class="heading3" id="ONE">SL 300 SV</div>
+            </div>
+
+
+            <input class="text" id="output" type="" placeholder="">
+            <input type="button" value="AC" class="b1" onclick="clearResult()">
+            <input type="button" value="DEL" class="b1" onclick="removeLastElement()">
+            <input type="button" value="+/-" class="b1" onclick="addToResult('+/-')">
+            <input type="button" value="/" class="b1" onclick="addToResult('/')">
+            <!-- 2 -->
+            <input type="button" value="7" class="b1" onclick="addToResult('7')">
+            <input type="button" value="8" class="b1" onclick="addToResult('8')">
+            <input type="button" value="9" class="b1" onclick="addToResult('9')">
+            <input type="button" value="*" class="b1" onclick="addToResult('*')">
+            <!-- 3 -->
+            <input type="button" value="4" class="b1" onclick="addToResult('4')">
+            <input type="button" value="5" class="b1" onclick="addToResult('5')">
+            <input type="button" value="6" class="b1" onclick="addToResult('6')">
+            <input type="button" value="-" class="b1" onclick="addToResult('-')">
+            <!-- 4 -->
+            <input type="button" value="1" class="b1" onclick="addToResult('1')">
+            <input type="button" value="2" class="b1" onclick="addToResult('2')">
+            <input type="button" value="3" class="b1" onclick="addToResult('3')">
+            <input type="button" value="+" class="b1" onclick="addToResult('+')">
+            <!-- 5 -->
+            <input type="button" value="%" class="b1" onclick="addToResult('%')">
+            <input type="button" value="0" class="b1" onclick="addToResult('0')">
+            <input type="button" value="." class="b1" onclick="addToResult('.')">
+            <input type="button" value="=" class="b1" id="last" onclick="calculate()">
+        </div>
+    </div>
+
+    <script>
+        function addToResult(value) {
+            document.getElementById("output").value += value;
+        }
+
+        function calculate() {
+            var result = document.getElementById("output").value;
+            try {
+                document.getElementById("output").value = eval(result);
+            } catch (error) {
+                document.getElementById("output").value = "Error";
+            }
+        }
+
+        function clearResult() {
+            document.getElementById("output").value = "";
+        }
+
+
+        function removeLastElement() {
+            var result = document.getElementById("output").value;
+            document.getElementById("output").value = result.slice(0, -1);
+        }
+
+    </script>
+</body>
+
+</html>
